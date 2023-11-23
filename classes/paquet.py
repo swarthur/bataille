@@ -1,4 +1,4 @@
-from classes import Carte
+from carte import Carte
 
 class Paquet():
     def __init__(self) -> None:

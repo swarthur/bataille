@@ -1,4 +1,4 @@
-from constantes import SYMBOLES
+SYMBOLES = ["trèfle", "pique", "carreau", "coeur"]
 
 class Carte():
     def __init__(self, valeur, symbole) -> None:
