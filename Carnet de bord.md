@@ -23,3 +23,15 @@
 
 2. Prochaine séance:
     - Identification de la structure du programme à réaliser
+
+## 23/11/2023
+
+1. Ordre du jour
+    - Séparation du projet en modules
+    - Création des méthodes Paquet : split() et melanger()
+    - Création des méthodes Carte : \_\_lt__()
+    - Création de la fonction paquet_dep()
+
+2. Prochaine séance
+    - Continuer le déroulement du jeu
+    - Finaliser la documentation du code
