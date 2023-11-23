@@ -20,19 +20,30 @@ class Paquet():
         paquet_2 = Paquet()     
         for i in range(0,len(self.cartes)):
             if i<=25:
-                paquet_1.ajouter(carte)
+                paquet_1.ajouter(self.cartes[i])
             else:
-                paquet_2.ajouter(carte)
+                paquet_2.ajouter(self.cartes[i])
         return paquet_1, paquet_2
+    
+    def __str__(self) -> str:
+        return_str = "(\n"
+        for carte in self.cartes:
+            return_str += f"{str(carte)}\n"
+        return return_str + ")"
         
-
-liste= [Carte(4, "trèfle"),Carte(1, "pique"), Carte(10,"coeur"), Carte(1,"carreau")]
-paquet_test = Paquet()
-for carte in liste:
-    paquet_test.ajouter(carte)
-print(paquet_test.cartes)
-paquet_test.melanger()
-print(paquet_test.cartes)
-paquet_1, paquet_2 = paquet_test.split()
-print(paquet_1)
-print(paquet_2)
+if __name__ == "__main__":
+    liste = []
+    for i in range(1, 53):
+        liste.append(Carte(i, "trèfle"))
+    #liste= [Carte(4, "trèfle"),Carte(1, "pique"), Carte(10,"coeur"), Carte(1,"carreau")]
+    paquet_test = Paquet()
+    for carte in liste:
+        paquet_test.ajouter(carte)
+    #print(paquet_test.cartes)
+    #paquet_test.melanger()
+    #print(paquet_test.cartes)
+    paquet_1, paquet_2 = paquet_test.split()
+    print(paquet_1)
+    print(paquet_2)
+    paquet_2.melanger()
+    print(paquet_2)
