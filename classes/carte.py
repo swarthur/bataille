@@ -4,6 +4,8 @@ class Carte():
     def __init__(self, valeur, symbole: SYMBOLES) -> None:
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")
+        elif valeur > 13 or valeur < 0:
+            raise RuntimeError("Valeur invalide")
         self.valeur = valeur
         self.symbole = symbole
         if symbole in ["trèfle", "pique"]:
