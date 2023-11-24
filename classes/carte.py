@@ -25,9 +25,3 @@ class Carte():
         
     def __str__(self) -> str:
         return f"| {self.valeur} {self.symbole} |"
-        
-if __name__ == "__main__":
-    liste = [Carte(4, "trèfle"), Carte(1, "pique"), Carte(10, "coeur"), Carte(1, "carreau")]
-    print(liste[1]<liste[2])
-    for carte in liste:
-        print(carte)
