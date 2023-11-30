@@ -1,6 +1,11 @@
 SYMBOLES = ["trèfle", "pique", "carreau", "coeur"]
 
 class Carte():
+    """Classe de cartes
+    Attributs :
+        valeur(int): Valeur de la carte
+        symbole(str): Symbole de la carte
+    """
     def __init__(self, valeur, symbole: SYMBOLES) -> None:
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")
@@ -14,6 +19,14 @@ class Carte():
             self.couleur = "rouge"
 
     def __lt__(self, carte):
+        """Compare deux carte
+
+        Args:
+            carte (Carte): Seconde carte à comparer
+
+        Returns:
+            bool: Resultat de la comparaison
+        """
         if self.valeur == carte.valeur:
             return None
         elif self.valeur == 1:
