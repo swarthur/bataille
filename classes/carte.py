@@ -4,6 +4,8 @@ class Carte():
     def __init__(self, valeur, symbole: SYMBOLES) -> None:
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")
+        elif valeur > 13 or valeur < 0:
+            raise RuntimeError("Valeur invalide")
         self.valeur = valeur
         self.symbole = symbole
         if symbole in ["trèfle", "pique"]:
@@ -25,9 +27,3 @@ class Carte():
         
     def __str__(self) -> str:
         return f"| {self.valeur} {self.symbole} |"
-        
-if __name__ == "__main__":
-    liste = [Carte(4, "trèfle"), Carte(1, "pique"), Carte(10, "coeur"), Carte(1, "carreau")]
-    print(liste[1]<liste[2])
-    for carte in liste:
-        print(carte)
