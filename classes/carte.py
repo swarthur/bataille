@@ -19,14 +19,14 @@ class Carte():
         else:
             self.couleur = "rouge"
 
-    def __lt__(self, carte):
-        """Compare deux carte
+    def __lt__(self, carte)-> bool:
+        """Compare deux cartes
 
         Args:
             carte (Carte): Seconde carte à comparer
 
         Returns:
-            bool: Resultat de la comparaison
+            bool: Résultat de la comparaison
         """
         if self.valeur == carte.valeur:
             return None
@@ -40,4 +40,9 @@ class Carte():
             return False
         
     def __str__(self) -> str:
+        """Affiche la carte sous forme de chaine de caractères.
+
+        Returns:
+            str: Contient les infos de la carte
+        """
         return f"| {self.valeur} {self.symbole} |"
