@@ -1,4 +1,4 @@
-from carte import Carte
+from classes.carte import Carte
 from random import randint
 
 class Paquet():
