@@ -5,6 +5,7 @@ class Carte():
     Attributs :
         valeur(int): Valeur de la carte
         symbole(str): Symbole de la carte
+        couleur(str): Couleur du symbole de la carte
     """
     def __init__(self, valeur, symbole: SYMBOLES) -> None:
         if symbole not in SYMBOLES:
