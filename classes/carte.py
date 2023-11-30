@@ -7,7 +7,17 @@ class Carte():
         symbole(str): Symbole de la carte
         couleur(str): Couleur du symbole de la carte
     """
-    def __init__(self, valeur, symbole: SYMBOLES) -> None:
+    def __init__(self, valeur: int, symbole: SYMBOLES) -> None:
+        """Constructeur de l'instance
+
+        Args:
+            valeur (int): Valeur de la carte
+            symbole (SYMBOLES): Symbole de la carte
+
+        Raises:
+            RuntimeError: Si le symbole est invalide
+            RuntimeError: Si la valeur est invalide
+        """
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")
         elif valeur > 13 or valeur < 0:
