@@ -35,3 +35,17 @@
 2. Prochaine séance
     - Continuer le déroulement du jeu
     - Finaliser la documentation du code
+
+## 30/11/2023
+
+1. Ordre du jour
+    - Documentation de paquet et de carte : Pierre & Arthur Ch.
+    - Discussion avec M. Bailly
+    - Mise en place de main : Arthur Co.
+    - Tests évoqués
+
+2. Prochaine séance
+    - Développement de la fonction main
+    - Préparation du mode bataille
+    - Finalisation de la documentation
+    - Mise en place des tests
