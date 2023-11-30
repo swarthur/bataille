@@ -2,9 +2,10 @@ from carte import Carte
 from random import randint
 
 class Paquet():
-   '''Classe de paquet
-   Attributs :
-        cartes(list): Liste de cartes crées dans la méthode Carte''' 
+    """Paquet de cartes
+    Attributs:
+        cartes(list): liste de cartes
+    """
     def __init__(self) -> None:
         self.cartes = []
 
