@@ -30,7 +30,7 @@
     - Séparation du projet en modules
     - Création des méthodes Paquet : split() et melanger()
     - Création des méthodes Carte : \_\_lt__()
-    - Création de la fonction paquet_dep()
+    - Création de la fonction creation_paquet_0()
 
 2. Prochaine séance
     - Continuer le déroulement du jeu
