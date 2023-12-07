@@ -21,6 +21,10 @@ class Paquet():
             paquet_melange.append(self.cartes.pop(k))
         self.cartes = paquet_melange
 
+    def tete(self):
+        if not self.est_vide():
+            return self.cartes[-1]
+
     def recup(self, paquet_adv):
         carte_recup = paquet_adv.cartes.pop(-1)
         self.cartes.insert(0, carte_recup)
