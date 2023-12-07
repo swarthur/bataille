@@ -46,7 +46,12 @@ class Paquet():
         carte_recup = paquet_adv.cartes.pop(-1)
         self.cartes.insert(0, carte_recup)
 
-    def est_vide(self):
+    def est_vide(self)->bool:
+        """Teste si le paquet est vide
+
+        Returns:
+            bool: Si le paquet est vide
+        """
         if len(self.cartes) == 0:
             return True
         else:
