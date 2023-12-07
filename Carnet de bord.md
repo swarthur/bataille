@@ -49,3 +49,18 @@
     - Préparation du mode bataille
     - Finalisation de la documentation
     - Mise en place des tests
+
+### 07/12/2023
+
+1. Ordre du jour
+    - Ajouter les images de cartes au projet : Pierre
+    - Documentation de jeu, carte et paquet : Pierre & Arthur²
+    - Mise en place de certains tests Paquets : Arthur Co.
+    - Methodes tête, est_vide de Paquet : Arthur Ch. & Pierre
+    - Fct affrontement : Pierre
+
+2. Prochaine séance:
+    - Mise en place mode bataille
+    - Finalisation des tests
+    - Finalisation de la documentation
+    - Brainstorm interface graphique
