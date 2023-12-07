@@ -1,7 +1,7 @@
-from fonctions.jeu import paquet_dep
+from fonctions.jeu import creation_paquet_0
 
 def main():
-    paquet_0 = paquet_dep()
+    paquet_0 = creation_paquet_0()
     print(paquet_0)
     paquet_0.melanger()
     print(paquet_0)
