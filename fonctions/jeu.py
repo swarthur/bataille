@@ -2,10 +2,13 @@ from classes.carte import Carte, SYMBOLES
 from classes.paquet import Paquet
 
 def creation_paquet_0()->Paquet:
-    """Créer et retourne le paquet de départ (0)
 
-    Returns:
-        Paquet: Paquet de départ
+    """"creer paquet_0
+    
+    boucle qui creer 13 cartes par symboles avec leur valeurs puis les ajoutes dans paquet_0
+
+    return:
+    Lists: Renvoie la liste du paquet_0 de 52 cartes
     """
     paquet_0 = Paquet()
     for symbole in SYMBOLES:
