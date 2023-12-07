@@ -7,9 +7,16 @@ class Paquet():
         cartes(list): liste de cartes
     """
     def __init__(self) -> None:
+        """Constructeur
+        """
         self.cartes = []
 
     def ajouter(self, carte: Carte):
+        """Ajoute une carte au paquet
+
+        Args:
+            carte (Carte): Carte à ajouter
+        """
         self.cartes.append(carte)
 
     def melanger(self):
@@ -21,11 +28,21 @@ class Paquet():
             paquet_melange.append(self.cartes.pop(k))
         self.cartes = paquet_melange
 
-    def tete(self):
+    def tete(self)-> Carte:
+        """Retourne la carte en haut du paquet si ce dernier n'est pas vide
+
+        Returns:
+            Carte: Carte en haut du paquet
+        """
         if not self.est_vide():
             return self.cartes[-1]
 
     def recup(self, paquet_adv):
+        """Transfère la carte en haut du paquet_adv en dessous du paquet self
+
+        Args:
+            paquet_adv (Paquet): Paquet dont la carte est à récuperer
+        """
         carte_recup = paquet_adv.cartes.pop(-1)
         self.cartes.insert(0, carte_recup)
 
