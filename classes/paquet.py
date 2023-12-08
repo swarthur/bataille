@@ -21,6 +21,20 @@ class Paquet():
             paquet_melange.append(self.cartes.pop(k))
         self.cartes = paquet_melange
 
+    def tete(self):
+        if not self.est_vide():
+            return self.cartes[-1]
+
+    def recup(self, paquet_adv):
+        carte_recup = paquet_adv.cartes.pop(-1)
+        self.cartes.insert(0, carte_recup)
+
+    def est_vide(self):
+        if len(self.cartes) == 0:
+            return True
+        else:
+            return False
+
     def split(self):
         """Divise le paquet de 52 cartes mélangé en 2 paquets de 26 cartes chacuns
 
