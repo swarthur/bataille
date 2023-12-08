@@ -25,9 +25,12 @@ class Paquet():
         if not self.est_vide():
             return self.cartes[-1]
 
-    def recup(self, paquet_adv):
+    def recup(self, paquet_adv, en_haut: bool=False):
         carte_recup = paquet_adv.cartes.pop(-1)
-        self.cartes.insert(0, carte_recup)
+        if en_haut:
+            self.cartes.append(carte_recup)
+        else:
+            self.cartes.insert(0,carte_recup)
 
     def est_vide(self):
         if len(self.cartes) == 0:
