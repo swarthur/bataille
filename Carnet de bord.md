@@ -64,3 +64,15 @@
     - Finalisation des tests
     - Finalisation de la documentation
     - Brainstorm interface graphique
+
+### 08/12/2023
+
+1. Ordre du jour
+    - Mettre en partie en place mode bataille : Pierre
+    - Finaliser les tests : Arthur Co.
+    - Finaliser la documentation : Arthur Co.
+    - Réflexion interface graphique : Pierre
+
+2. Prochaine séance
+    - Finaliser mode bataille
+    - Commencer interface graphiaue
