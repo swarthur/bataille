@@ -1,4 +1,4 @@
-from classes.carte import Carte
+from bataille.classes.carte import Carte
 from random import randint
 
 class Paquet():
@@ -6,7 +6,7 @@ class Paquet():
     Attributs:
         cartes(list): liste de cartes
     """
-    def __init__(self, cartes:list=[]) -> None:
+    def __init__(self, cartes:list[Carte]) -> None:
         self.cartes = cartes
 
     def ajouter(self, carte: Carte):
@@ -46,10 +46,10 @@ class Paquet():
             raise RuntimeError("Nombre de cartes impair")
         elif self.est_vide():
             raise RuntimeError("Paquet vide")
-        paquet_1 = Paquet()
-        paquet_2 = Paquet()     
-        for i in range(0,len(self.cartes)//2):
-            if i<=25:
+        paquet_1 = Paquet([])
+        paquet_2 = Paquet([])     
+        for i in range(0,len(self.cartes)):
+            if i<=(len(self.cartes)//2)-1:
                 paquet_1.ajouter(self.cartes[i])
             else:
                 paquet_2.ajouter(self.cartes[i])
