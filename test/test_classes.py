@@ -72,8 +72,6 @@ class TestPaquet(unittest.TestCase):
     def test_split(self):
         paquet_t1 = Paquet([Carte(10, "carreau"), Carte(5, "coeur")])
         paquet_t2, paquet_t3 = paquet_t1.split()
-        print(paquet_t2)
-        print(paquet_t3)
         self.assertTrue(len(paquet_t2) == 1)
         self.assertTrue(len(paquet_t3) == 1)
         paquet_t4 = Paquet([])
