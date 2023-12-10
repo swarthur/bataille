@@ -1,6 +1,6 @@
 from bataille.classes.carte import Carte
 from random import randint
-from typing_extensions import Self
+from typing import Self
 
 
 class Paquet():
@@ -16,13 +16,58 @@ class Paquet():
         """
         self.cartes = cartes
 
-    def ajouter(self, carte: Carte):
+    def get_cartes(self, dernier_index: int=None)->list:
+        """Retourne la liste des cartes du paquet d'index compris: 
+         - entre 0 et dernier_index inclus si ce dernier est positif ou nul
+         - entre -1 et dernier_index inclus si de dernier est négatif
+        
+
+        Args:
+            dernier_index (int, optional): index "borne". Defaults to None.
+
+        Raises:
+            RuntimeError: Si l'index est hors-liste
+
+        Returns:
+            list: Liste des cartes
+        """
+        list_return = []
+        if dernier_index == None:
+            dernier_index = len(self)-1
+        if abs(dernier_index)> len(self.cartes) or self.est_vide():
+            raise RuntimeError("Index hors-liste")
+        elif dernier_index<0:
+            for carte in range(1, abs(dernier_index)+1):
+                list_return.append(self.cartes[carte*-1])
+        elif dernier_index>=0:
+            for carte in range(0, dernier_index+1):
+                list_return.append(self.cartes[carte])
+        return list_return
+
+
+    def ajouter(self, carte: Carte, en_tete: bool=False):
         """Ajoute une carte au paquet
 
         Args:
             carte (Carte): Carte à ajouter au paquet
+            en_haut (bool): Définit si la carte doit être ajoutée en tête du paquet ou à la queue
         """
-        self.cartes.append(carte)
+        if en_tete:
+            self.cartes.append(carte)
+        else:
+            self.cartes.insert(0, carte)
+    
+    def assembler(self, paquet: Self, en_haut: bool=False):
+        if en_haut:
+            self.cartes = self.cartes + paquet.get_cartes()
+        else:
+            self.cartes = paquet.get_cartes() + self.cartes
+            pass
+
+    def retirer(self, index:int)-> Carte:
+        if self.est_vide():
+            raise RuntimeError("Paquet vide")
+        return self.pop(index)
 
     def melanger(self)-> None:
         """
