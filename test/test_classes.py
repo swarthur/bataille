@@ -1,6 +1,6 @@
 import unittest
-from classes.carte import Carte
-from classes.paquet import Paquet
+from bataille.classes.carte import Carte
+from bataille.classes.paquet import Paquet
 from copy import deepcopy
 
 class TestCarte(unittest.TestCase):
@@ -25,15 +25,16 @@ class TestPaquet(unittest.TestCase):
         carte_t1 = Carte(3, "coeur")
         carte_t2 = Carte(1, "pique")
         paquet_t1 = Paquet([carte_t1, carte_t2])
-        paquet_t2 = Paquet()
+        paquet_t2 = Paquet([])
         paquet_t2.ajouter(carte_t1)
         self.assertEqual(paquet_t1.tete(), carte_t2)
         self.assertEqual(paquet_t2.tete(), carte_t1)
-        del paquet_t1, paquet_t2
+        del paquet_t1
+        del paquet_t2
     
     def test_ajouter(self):
         carte_t1 = Carte(3, "coeur")
-        paquet_t1 = Paquet()
+        paquet_t1 = Paquet([])
         paquet_t1.ajouter(carte_t1)
         self.assertTrue(carte_t1 in paquet_t1.cartes)
         del paquet_t1
@@ -57,25 +58,33 @@ class TestPaquet(unittest.TestCase):
         paquet_t2 = Paquet([Carte(6,"carreau"), Carte(7, "pique")])
         paquet_t1.recup(paquet_t2)
         self.assertTrue(paquet_t1.cartes[0].valeur == 7)
-        del paquet_t1, paquet_t2
+        del paquet_t1
+        del paquet_t2
 
     def test_est_vide(self):
         paquet_t1 = Paquet([Carte(10, "carreau")])
         paquet_t2 = Paquet([])
         self.assertFalse(paquet_t1.est_vide())
         self.assertTrue(paquet_t2.est_vide())
-        del paquet_t1, paquet_t2
+        del paquet_t1
+        del paquet_t2
     
     def test_split(self):
         paquet_t1 = Paquet([Carte(10, "carreau"), Carte(5, "coeur")])
-        print(paquet_t1)
         paquet_t2, paquet_t3 = paquet_t1.split()
         print(paquet_t2)
+        print(paquet_t3)
         self.assertTrue(len(paquet_t2) == 1)
         self.assertTrue(len(paquet_t3) == 1)
-        paquet_t4 = Paquet()
+        paquet_t4 = Paquet([])
         with self.assertRaises(RuntimeError):
             paquet_t4.split()
         paquet_t4.ajouter(Carte(1, "trèfle"))
         with self.assertRaises(RuntimeError):
             paquet_t4.split()
+            
+    def test_len(self):
+        paquet_t1 = Paquet([])
+        self.assertEqual(len(paquet_t1), 0)
+        paquet_t1 = Paquet([Carte(5, "trèfle")])
+        self.assertEqual(len(paquet_t1), 1)
