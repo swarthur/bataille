@@ -1,16 +1,8 @@
-from classes.carte import Carte, SYMBOLES
-from classes.paquet import Paquet
+from bataille.classes.carte import Carte, SYMBOLES
+from bataille.classes.paquet import Paquet
 
-def creation_paquet_0()->Paquet:
-
-    """"creer paquet_0
-    
-    boucle qui creer 13 cartes par symboles avec leur valeurs puis les ajoutes dans paquet_0
-
-    return:
-    Lists: Renvoie la liste du paquet_0 de 52 cartes
-    """
-    paquet_0 = Paquet()
+def creation_paquet_0():
+    paquet_0 = Paquet([])
     for symbole in SYMBOLES:
         for valeur in range(1,14):
             paquet_0.ajouter(Carte(valeur, symbole))
@@ -27,6 +19,6 @@ def affrontement(paquet_1: Paquet, paquet_2:Paquet):
         bataille(paquet_1, paquet_2)
 
 def bataille(paquet_1: Paquet, paquet_2: Paquet):
-    paquet_3 = Paquet()
+    paquet_3 = Paquet([])
     paquet_3.recup(paquet_1)
     paquet_3.recup(paquet_2)
