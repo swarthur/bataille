@@ -1,6 +1,7 @@
 import unittest
 from bataille.classes.carte import Carte
 from bataille.classes.paquet import Paquet
+from bataille.classes.erreur import PaquetVideException
 from copy import deepcopy
 
 class TestCarte(unittest.TestCase):
@@ -75,7 +76,7 @@ class TestPaquet(unittest.TestCase):
         self.assertTrue(len(paquet_t2) == 1)
         self.assertTrue(len(paquet_t3) == 1)
         paquet_t4 = Paquet([])
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(PaquetVideException):
             paquet_t4.split()
         paquet_t4.ajouter(Carte(1, "trèfle"))
         with self.assertRaises(RuntimeError):
