@@ -1,11 +1,11 @@
 SYMBOLES = ["trèfle", "pique", "carreau", "coeur"]
-
 class Carte():
     """Classe de cartes
     Attributs :
         valeur(int): Valeur de la carte
         symbole(str): Symbole de la carte
         couleur(str): Couleur du symbole de la carte
+        img(str): 
     """
     def __init__(self, valeur: int, symbole: SYMBOLES) -> None:
         """Constructeur de l'instance
@@ -28,6 +28,7 @@ class Carte():
             self.couleur = "noire"
         else:
             self.couleur = "rouge"
+        self.img = f"..\\images\\{self.symbole}_{self.valeur}.png"
 
     def __lt__(self, carte)-> bool:
         """Compare deux cartes
