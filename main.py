@@ -1,4 +1,4 @@
-from fonctions.jeu import creation_paquet_0, affrontement
+from bataille.fonctions.jeu import creation_paquet_0, affrontement
 
 def main():
     paquet_0 = creation_paquet_0()

@@ -1,4 +1,4 @@
-from classes.carte import Carte
+from bataille.classes.carte import Carte
 from random import randint
 
 class Paquet():
@@ -6,14 +6,15 @@ class Paquet():
     Attributs:
         cartes(list): liste de cartes
     """
-    def __init__(self) -> None:
-        self.cartes = []
+    def __init__(self, cartes:list[Carte]) -> None:
+        self.cartes = cartes
 
     def ajouter(self, carte: Carte):
         self.cartes.append(carte)
 
     def melanger(self):
-        """Mélange le paquet initial en mettant le résultat dans une boucle
+        """
+        Mélange le paquet initial en mettant le résultat dans une boucle
         """
         paquet_melange = []
         for i in range (0,len(self.cartes)):
@@ -25,27 +26,33 @@ class Paquet():
         if not self.est_vide():
             return self.cartes[-1]
 
-    def recup(self, paquet_adv):
+    def recup(self, paquet_adv, en_haut: bool=False):
         carte_recup = paquet_adv.cartes.pop(-1)
-        self.cartes.insert(0, carte_recup)
+        if en_haut:
+            self.cartes.append(carte_recup)
+        else:
+            self.cartes.insert(0,carte_recup)
 
     def est_vide(self):
-        if len(self.cartes) == 0:
+        if len(self) == 0:
             return True
         else:
             return False
 
     def split(self):
-        """Divise le paquet de 52 cartes mélangé en 2 paquets de 26 cartes chacuns
-
+        """Divise le paquet de X cartes en 2 paquets de X/2 cartes chacuns
 
         Returns:
-            Lists: Renvoie les listes des 2 nouveaux paquets créés.
+            tuple: Renvoie un tuple contenant les 2 nouveaux paquets créés.
         """
-        paquet_1 = Paquet()
-        paquet_2 = Paquet()     
+        if len(self.cartes)%2 != 0:
+            raise RuntimeError("Nombre de cartes impair")
+        elif self.est_vide():
+            raise RuntimeError("Paquet vide")
+        paquet_1 = Paquet([])
+        paquet_2 = Paquet([])     
         for i in range(0,len(self.cartes)):
-            if i<=25:
+            if i<=(len(self.cartes)//2)-1:
                 paquet_1.ajouter(self.cartes[i])
             else:
                 paquet_2.ajouter(self.cartes[i])
@@ -61,20 +68,6 @@ class Paquet():
         for carte in self.cartes:
             return_str += f"{str(carte)}\n"
         return return_str + ")"
-
-if __name__ == "__main__":
-    liste = []
-    for i in range(1, 53):
-        liste.append(Carte(i, "trèfle"))
-    #liste= [Carte(4, "trèfle"),Carte(1, "pique"), Carte(10,"coeur"), Carte(1,"carreau")]
-    paquet_test = Paquet()
-    for carte in liste:
-        paquet_test.ajouter(carte)
-    #print(paquet_test.cartes)
-    #paquet_test.melanger()
-    #print(paquet_test.cartes)
-    paquet_1, paquet_2 = paquet_test.split()
-    print(paquet_1)
-    print(paquet_2)
-    paquet_2.melanger()
-    print(paquet_2)
+    
+    def __len__(self):
+        return len(self.cartes)
