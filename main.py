@@ -4,8 +4,12 @@ def main():
     paquet_0 = creation_paquet_0()
     paquet_0.melanger()
     paquet_1, paquet_2 = paquet_0.split()
+    del paquet_0
+    vainqueur = None
+    manche = 0
     while not (paquet_1.est_vide() or paquet_2.est_vide()):
-        affrontement(paquet_1, paquet_2)
-    print(paquet_1, paquet_2)
+        vainqueur = affrontement(paquet_1, paquet_2)
+        print(f"Manche {manche} | Vainqueur : {vainqueur}")
+        manche += 1
 
 main()

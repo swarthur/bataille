@@ -67,9 +67,9 @@ class TestPaquet(unittest.TestCase):
         self.assertTrue(paquet_t1.est_vide())
         with self.assertRaises(NbCartesInsuffisantException):
             paquet_t2.retirer(4)
-        paquet_t3 = Paquet([paquet_t2.retirer(2)])
+        paquet_t3 = Paquet(paquet_t2.retirer(2))
         self.assertTrue(paquet_t2.est_vide())
-        self.assertEqual(paquet_t3.get_cartes(), [[carte_t3, carte_t2]])
+        self.assertEqual(paquet_t3.get_cartes(), [carte_t3, carte_t2])
 
     def test_melanger(self):
         paquet_t1 = Paquet([Carte(1, "pique"), Carte(5, "pique"), Carte(9, "coeur") ])

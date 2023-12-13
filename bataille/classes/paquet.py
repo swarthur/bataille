@@ -15,6 +15,11 @@ class Paquet():
         Args:
             cartes (list[Carte]): Liste de cartes à ajouter
         """
+        if type(cartes) != list:
+            raise TypeError
+        for carte in cartes:
+            if type(carte) != Carte:
+                raise TypeError
         self.cartes = cartes
 
     def get_cartes(self)-> list:
@@ -32,18 +37,19 @@ class Paquet():
             carte (Carte): Carte à ajouter au paquet
             en_haut (bool): Définit si la carte doit être ajoutée en tête du paquet ou à la queue
         """
+        if type(carte) != Carte:
+            raise TypeError
         if en_tete:
             self.cartes.append(carte)
         else:
             self.cartes.insert(0, carte)
     
     def assembler(self, paquet: Self, en_haut: bool=False):
-        nouv_cartes = paquet.get_cartes()
+        nouv_cartes = paquet.retirer(0)
         if en_haut:
             self.cartes = self.cartes + nouv_cartes
         else:
             self.cartes = nouv_cartes + self.cartes
-        paquet.retirer(0)
 
     def retirer(self, nb_cartes: int = 1)-> list:
         """Retire et retourne la liste des nb_cartes cartes du haut du paquet.
@@ -60,7 +66,7 @@ class Paquet():
         """
         if nb_cartes == 0:
             paquet = self.get_cartes()
-            self.cartes = []
+            self.cartes = [] 
         elif len(self) < nb_cartes:
             raise NbCartesInsuffisantException(f"Pas assez de cartes dans le paquet: {len(self)}")
         else:
@@ -79,18 +85,19 @@ class Paquet():
             paquet_melange.append(self.cartes.pop(carte_rand))
         self.cartes = paquet_melange
 
-    def recup(self, paquet: Self, nb_cartes:int = 1)-> None:
-        """Récupère le nombre de cartes demandé à partir du haut du second paquet.
+    def recup(self, paquet: Self, nb_cartes:int = 1, en_haut: bool= False)-> None:
+        """Récupère le nombre de cartes demandé à partir du haut du second paquet et les ajoute au premier paquet.
 
         Args:
             paquet (Self): Second paquet
             nb_cartes (int, optional): Nombre de cartes à récuperer. Defaults to 1.
+            en_haut (bool, optional): Si les cartes récupérées sont à placer en haut ou en bas du premier paquet
 
         Raises:
             NbCartesInsuffisantException: Si il n'y as pas assez de cartes
         """
         cartes_recup = Paquet(paquet.retirer(nb_cartes))
-        self.assembler(cartes_recup)
+        self.assembler(cartes_recup, en_haut)
 
     def est_vide(self)-> bool:
         """Teste si le paquet est vide
