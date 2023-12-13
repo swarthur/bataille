@@ -20,10 +20,10 @@ def affrontement(paquet_1: Paquet, paquet_2:Paquet):
         paquet_1 (Paquet): Premier paquet de l'affrontement
         paquet_2 (Paquet): Second paquet de l'affrontement
     """
-    if paquet_1.tete()>paquet_2.tete():
+    if paquet_1.get_cartes()[-1]>paquet_2.get_cartes()[-1]:
         paquet_1.recup(paquet_2)
         paquet_1.recup(paquet_1)
-    elif paquet_2.tete()>paquet_1.tete():
+    elif paquet_2.get_cartes()[-1]>paquet_1.get_cartes()[-1]:
         paquet_2.recup(paquet_1)
         paquet_2.recup(paquet_2)
     else:

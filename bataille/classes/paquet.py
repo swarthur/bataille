@@ -1,5 +1,5 @@
 from bataille.classes.carte import Carte
-from bataille.classes.erreur import PaquetVideException, NbCartesInsuffisantException
+from bataille.classes.erreur import NbCartesInsuffisantException
 from random import randint
 from typing import Self
 
@@ -43,56 +43,41 @@ class Paquet():
             self.cartes = self.cartes + nouv_cartes
         else:
             self.cartes = nouv_cartes + self.cartes
-        paquet.retirer(None)
+        paquet.retirer(0)
 
-    def retirer(self, indice_range:tuple[int, int]=None)-> list:
-        """Retire et retourne la liste des cartes d'indices compris entre les deux éléments de indice_range
+    def retirer(self, nb_cartes: int = 1)-> list:
+        """Retire et retourne la liste des nb_cartes cartes du haut du paquet.
+        0 retire et renvoie toutes les cartes du paquet.
 
         Args:
-            indice_range (tuple[int, int], optional): ensembles des indices dont les éléments sont à supprimer. Defaults to None.
+            nb_cartes (int, optional): nombre de cartes à retirer du paquet. Defaults to 1.
 
         Raises:
-            PaquetVideException: Si le paquet est vide
+            NbCartesInsuffisantException: Si le paquet est vide
 
         Returns:
             list: Cartes retirées
         """
-        if self.est_vide():
-            raise PaquetVideException("Paquet vide")
-        elif indice_range == None:
+        if nb_cartes == 0:
             paquet = self.get_cartes()
             self.cartes = []
-            return paquet
-        elif indice_range[0] == indice_range[1]:
-            return [self.cartes.pop(indice_range[0])]
+        elif len(self) < nb_cartes:
+            raise NbCartesInsuffisantException(f"Pas assez de cartes dans le paquet: {len(self)}")
         else:
-            if indice_range[1] > indice_range[0]:
-                indice_range = (indice_range[1], indice_range[0])
-            paquet = self.get_cartes()[indice_range[0]: indice_range[1]]
-            self.cartes = self.cartes[:indice_range[0]] + self.cartes[indice_range[1]:]
-            return paquet       
+            paquet = []
+            for i in range(nb_cartes):
+                paquet.append(self.cartes.pop(-1))
+        return paquet       
             
     def melanger(self)-> None:
         """
         Mélange le paquet
         """
-        if self.est_vide():
-            raise PaquetVideException("Paquet vide")
         paquet_melange = []
         for carte in range (0,len(self.cartes)):
             carte_rand=randint(0,len(self.cartes)-1)
             paquet_melange.append(self.cartes.pop(carte_rand))
         self.cartes = paquet_melange
-
-    def tete(self)-> Carte:
-        """Retourne la carte en haut du paquet
-
-        Returns:
-            Carte: Carte en haut du paquet
-        """
-        if self.est_vide():
-            raise PaquetVideException("Paquet vide")
-        return self.cartes[-1]
 
     def recup(self, paquet: Self, nb_cartes:int = 1)-> None:
         """Récupère le nombre de cartes demandé à partir du haut du second paquet.
@@ -104,9 +89,7 @@ class Paquet():
         Raises:
             NbCartesInsuffisantException: Si il n'y as pas assez de cartes
         """
-        if len(paquet) < nb_cartes:
-            raise NbCartesInsuffisantException(f"Pas assez de cartes dans le paquet: {len(paquet)}")
-        cartes_recup = Paquet(paquet.retirer((0-nb_cartes, -1)))
+        cartes_recup = Paquet(paquet.retirer(nb_cartes))
         self.assembler(cartes_recup)
 
     def est_vide(self)-> bool:
@@ -125,7 +108,7 @@ class Paquet():
 
         Raises:
             RuntimeError: Erreur si le nombre de cartes est impair
-            PaquetVideException: Erreur si le paquet est vide
+            NbCartesInsuffisantException: Erreur si le paquet est vide
 
         Returns:
             tuple[Self, Self]: Renvoie un tuple contenant les 2 nouveaux paquets créés.
@@ -133,7 +116,7 @@ class Paquet():
         if len(self.cartes)%2 != 0:
             raise RuntimeError("Nombre de cartes impair")
         elif self.est_vide():
-            raise PaquetVideException("Paquet vide")
+            raise NbCartesInsuffisantException("Paquet vide")
         paquet_1 = Paquet([])
         paquet_2 = Paquet([])     
         for i in range(0,len(self.cartes)):
