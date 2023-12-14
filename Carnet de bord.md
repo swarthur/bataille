@@ -76,3 +76,13 @@
 2. Prochaine séance
     - Finaliser mode bataille
     - Commencer interface graphiaue
+
+### 14/12/2023
+
+1. Ordre du jour
+    - Finaliser la bataille : Arthur Co.
+    - Optimisations : Arthur Co.
+    - Progression de la mise en place de l'interface graphique : Pierre
+
+2. Prochaine séance:
+    - Interface graphique
