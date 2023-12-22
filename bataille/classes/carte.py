@@ -39,6 +39,10 @@ class Carte():
 
         Returns:
             bool: Résultat de la comparaison
+        
+        Contributeurs:
+            Pierre
+            Arthur. Co
         """
         if self.valeur == carte.valeur:
             return None
@@ -56,5 +60,8 @@ class Carte():
 
         Returns:
             str: Contient les infos de la carte
+        
+        Contributeur:
+            Arthur. Co
         """
         return f"| {self.valeur} {self.symbole} |"

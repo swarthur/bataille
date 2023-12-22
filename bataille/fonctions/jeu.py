@@ -8,6 +8,8 @@ def creation_paquet_0(nb_cartes:int = 52)-> Paquet:
         nb_cartes (int, optional): Nombre de cartes dans le paquet à retourner.
     Returns:
         Paquet: Paquet contenant les cartes créées
+    Contributeur :
+        Arthur Chevalier
     """
     paquet_0 = Paquet([])
     for symbole in SYMBOLES:
@@ -26,6 +28,8 @@ def affrontement(paquet_1: Paquet, paquet_1bis: Paquet, paquet_2: Paquet, paquet
         
     Returns:
         int: numéro du joueur gagnant
+    Contributeurs:
+        Pierre
     """
     print(paquet_1bis.get_cartes()[-1], paquet_2bis.get_cartes()[-1])
     if (paquet_1bis.get_cartes()[-1])>(paquet_2bis.get_cartes()[-1]):
@@ -50,6 +54,10 @@ def bataille(paquet_1: Paquet, paquet_1bis: Paquet, paquet_2: Paquet, paquet_2bi
 
     Returns:
         int: numéro du joueur gagnant
+    
+    Contributeurs:
+        Pierre
+        Arthur. Co
     """
     print("BATAILLE")
     for i in range(2):

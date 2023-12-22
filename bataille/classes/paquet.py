@@ -32,6 +32,8 @@ class Paquet():
 
         Returns:
             list: Cartes du paquet
+        Contributeur:
+            Arthur. Co
         """
         return self.cartes
 
@@ -41,6 +43,9 @@ class Paquet():
         Args:
             carte (Carte): Carte à ajouter au paquet
             en_haut (bool): Définit si la carte doit être ajoutée en tête du paquet ou à la queue
+        Contributeur:
+            Pierre
+            Arthur. Co
         """
         if type(carte) != Carte:
             raise TypeError
@@ -68,6 +73,9 @@ class Paquet():
 
         Returns:
             list: Cartes retirées
+        Contributeur:
+            Pierre
+            Arthur. Co
         """
         if nb_cartes == 0:
             paquet = self.get_cartes()
@@ -83,6 +91,8 @@ class Paquet():
     def melanger(self)-> None:
         """
         Mélange le paquet
+        Contributeur:
+            Pierre
         """
         paquet_melange = []
         for carte in range (0,len(self.cartes)):
@@ -100,6 +110,8 @@ class Paquet():
 
         Raises:
             NbCartesInsuffisantException: Si il n'y as pas assez de cartes
+        Conributeur:
+            Arthur. Co
         """
         cartes_recup = Paquet(paquet.retirer(nb_cartes))
         self.assembler(cartes_recup, en_haut)
@@ -109,6 +121,10 @@ class Paquet():
 
         Returns:
             bool: Paquet vide ou non
+        
+        Contributeurs:
+            Pierre
+            Arthur. Co
         """
         if len(self) == 0:
             return True
@@ -160,5 +176,7 @@ class Paquet():
 
         Returns:
             int: Nombre de cartes du paquet
+        Contributeur:
+            Arthur. Co
         """
         return len(self.cartes)
