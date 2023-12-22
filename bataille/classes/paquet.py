@@ -45,6 +45,12 @@ class Paquet():
             self.cartes.insert(0, carte)
     
     def assembler(self, paquet: Self, en_haut: bool=False):
+        """Assemble (concatène) deux paquets
+
+        Args:
+            paquet (Self): paquet à recupérer
+            en_haut (bool, optional): définit si le paquet récupérer doit être placé en haut ou en bas du paquet récepteur. Defaults to False.
+        """
         nouv_cartes = paquet.retirer(0)
         if en_haut:
             self.cartes = self.cartes + nouv_cartes
