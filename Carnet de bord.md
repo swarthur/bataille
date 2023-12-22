@@ -19,7 +19,7 @@
 ## 16/11/2023
 
 1. Ordre du jour
-    - Séance courte: réflexion de groupe à l'oral
+    - **Séance courte**: réflexion de groupe *rapide* à l'oral sur la répartition des tâches
 
 2. Prochaine séance:
     - Identification de la structure du programme à réaliser
