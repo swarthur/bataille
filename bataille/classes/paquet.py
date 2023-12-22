@@ -8,6 +8,11 @@ class Paquet():
     """Paquet de cartes
     Attributs:
         cartes(list): liste de cartes
+
+    Contributeurs:
+        Arthur.Ch 
+        Arthur.Co
+        Pierre
     """
     def __init__(self, cartes:list[Carte]) -> None:
         """Constructeur de Paquet
@@ -119,6 +124,9 @@ class Paquet():
 
         Returns:
             tuple[Self, Self]: Renvoie un tuple contenant les 2 nouveaux paquets créés.
+
+        Contributeurs:
+        Pierre
         """
         if len(self.cartes)%2 != 0:
             raise RuntimeError("Nombre de cartes impair")
@@ -138,6 +146,9 @@ class Paquet():
 
         Returns:
             str: Chaine de caractère des cartes du paquet
+        
+        Contributeur:
+            Arthur. Co
         """
         return_str = "(b\n"
         for carte in self.cartes:
