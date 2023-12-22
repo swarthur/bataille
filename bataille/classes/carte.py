@@ -17,6 +17,8 @@ class Carte():
         Raises:
             RuntimeError: Si le symbole est invalide
             RuntimeError: Si la valeur est invalide
+        Contributeur :
+            Arthur. Co
         """
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")

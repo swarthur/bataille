@@ -5,6 +5,11 @@ class Paquet():
     """Paquet de cartes
     Attributs:
         cartes(list): liste de cartes
+
+    Contributeurs:
+        Arthur.Ch 
+        Arthur.Co
+        Pierre
     """
     def __init__(self, cartes:list[Carte]) -> None:
         self.cartes = cartes
@@ -15,6 +20,11 @@ class Paquet():
     def melanger(self):
         """
         Mélange le paquet initial en mettant le résultat dans une boucle
+
+        Contributeurs:
+            Pierre
+            Arthur Co.
+            Arthur Ch.
         """
         paquet_melange = []
         for i in range (0,len(self.cartes)):
@@ -41,6 +51,9 @@ class Paquet():
 
         Returns:
             tuple: Renvoie un tuple contenant les 2 nouveaux paquets créés.
+
+        Contributeurs:
+        Pierre
         """
         if len(self.cartes)%2 != 0:
             raise RuntimeError("Nombre de cartes impair")
@@ -60,6 +73,9 @@ class Paquet():
 
         Returns:
             str: Affiche les cartes
+        
+        Contributeur:
+            Arthur. Co
         """
         return_str = "(\n"
         for carte in self.cartes:
