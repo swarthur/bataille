@@ -64,4 +64,12 @@ class Carte():
         Contributeur:
             Arthur. Co
         """
-        return f"| {self.valeur} {self.symbole} |"
+        if self.valeur==11:
+            return_str = "Valet"
+        elif self.valeur == 12:
+            return_str = "Reine"
+        elif self.valeur == 13:
+            return_str = "Roi"
+        else:
+            return_str = self.valeur
+        return f"| {return_str} {self.symbole} |"
