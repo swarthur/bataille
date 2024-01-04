@@ -19,6 +19,9 @@ class Paquet():
 
         Args:
             cartes (list[Carte]): Liste de cartes à ajouter
+
+        Contributeur:
+            Arthur Co.
         """
         if type(cartes) != list:
             raise TypeError
@@ -32,8 +35,9 @@ class Paquet():
 
         Returns:
             list: Cartes du paquet
+
         Contributeur:
-            Arthur. Co
+            Arthur Co.
         """
         return self.cartes
 
@@ -43,9 +47,10 @@ class Paquet():
         Args:
             carte (Carte): Carte à ajouter au paquet
             en_haut (bool): Définit si la carte doit être ajoutée en tête du paquet ou à la queue
-        Contributeur:
+
+        Contributeurs:
             Pierre
-            Arthur. Co
+            Arthur Co.
         """
         if type(carte) != Carte:
             raise TypeError
@@ -95,8 +100,8 @@ class Paquet():
         return paquet       
             
     def melanger(self)-> None:
-        """
-        Mélange le paquet
+        """Mélange le paquet
+
         Contributeur:
             Pierre
         """
@@ -130,7 +135,7 @@ class Paquet():
         
         Contributeurs:
             Pierre
-            Arthur. Co
+            Arthur Co.
         """
         if len(self) == 0:
             return True
@@ -147,8 +152,8 @@ class Paquet():
         Returns:
             tuple[Self, Self]: Renvoie un tuple contenant les 2 nouveaux paquets créés.
 
-        Contributeurs:
-        Pierre
+        Contributeur:
+            Pierre
         """
         if len(self.cartes)%2 != 0:
             raise RuntimeError("Nombre de cartes impair")
@@ -170,7 +175,7 @@ class Paquet():
             str: Chaine de caractère des cartes du paquet
         
         Contributeur:
-            Arthur. Co
+            Arthur Co.
         """
         return_str = "(b\n"
         for carte in self.cartes:
@@ -182,6 +187,7 @@ class Paquet():
 
         Returns:
             int: Nombre de cartes du paquet
+
         Contributeur:
             Arthur. Co
         """

@@ -2,6 +2,7 @@ SYMBOLES = ["trèfle", "pique", "carreau", "coeur"]
 
 class Carte():
     """Classe de cartes
+
     Attributs :
         valeur(int): Valeur de la carte
         symbole(str): Symbole de la carte
@@ -17,8 +18,9 @@ class Carte():
         Raises:
             RuntimeError: Si le symbole est invalide
             RuntimeError: Si la valeur est invalide
+
         Contributeur :
-            Arthur. Co
+            Arthur Co.
         """
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")
@@ -42,7 +44,7 @@ class Carte():
         
         Contributeurs:
             Pierre
-            Arthur. Co
+            Arthur Co.
         """
         if self.valeur == carte.valeur:
             return None
@@ -62,7 +64,7 @@ class Carte():
             str: Contient les infos de la carte
         
         Contributeur:
-            Arthur. Co
+            Arthur Co.
         """
         if self.valeur==11:
             return_str = "Valet"
