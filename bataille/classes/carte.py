@@ -1,6 +1,7 @@
 SYMBOLES = ["trèfle", "pique", "carreau", "coeur"]
 class Carte():
     """Classe de cartes
+
     Attributs :
         valeur(int): Valeur de la carte
         symbole(str): Symbole de la carte
@@ -17,6 +18,9 @@ class Carte():
         Raises:
             RuntimeError: Si le symbole est invalide
             RuntimeError: Si la valeur est invalide
+
+        Contributeur :
+            Arthur Co.
         """
         if symbole not in SYMBOLES:
             raise RuntimeError("Symbole invalide")
@@ -38,6 +42,10 @@ class Carte():
 
         Returns:
             bool: Résultat de la comparaison
+        
+        Contributeurs:
+            Pierre
+            Arthur Co.
         """
         if self.valeur == carte.valeur:
             return None
@@ -55,5 +63,16 @@ class Carte():
 
         Returns:
             str: Contient les infos de la carte
+        
+        Contributeur:
+            Arthur Co.
         """
-        return f"| {self.valeur} {self.symbole} |"
+        if self.valeur==11:
+            return_str = "Valet"
+        elif self.valeur == 12:
+            return_str = "Reine"
+        elif self.valeur == 13:
+            return_str = "Roi"
+        else:
+            return_str = self.valeur
+        return f"| {return_str} {self.symbole} |"
