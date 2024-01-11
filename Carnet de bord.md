@@ -99,3 +99,9 @@
 
 2. Prochaine séance
     - Interface graphique
+
+### 11/01/2024
+
+1. Ordre du jour
+    - Avancement interface graphique : Arthur Co.
+    - Avacement compte-rendu : Pierre, Arthur Ch.
