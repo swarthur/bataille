@@ -50,7 +50,7 @@
     - Finalisation de la documentation
     - Mise en place des tests
 
-### 07/12/2023
+## 07/12/2023
 
 1. Ordre du jour
     - Ajouter les images de cartes au projet : Pierre
@@ -65,7 +65,7 @@
     - Finalisation de la documentation
     - Brainstorm interface graphique
 
-### 08/12/2023
+## 08/12/2023
 
 1. Ordre du jour
     - Mettre en partie en place mode bataille : Pierre
@@ -77,30 +77,31 @@
     - Finaliser mode bataille
     - Commencer interface graphiaue
 
-### 14/12/2023
+## 14/12/2023
 
 1. Ordre du jour
     - Finaliser la bataille : Arthur Co.
-    - Optimisations : Arthur Co.
+    - Optimisations : Arthur Ch.
+    - Exceptions, fonction main : Arthur Co.
     - Progression de la mise en place de l'interface graphique : Pierre
 
 2. Prochaine séance:
     - Interface graphique
     - Finalisation du jeu de base
 
-### 22/12/2023
+## 22/12/2023
 
 1. Ordre du jour
     - Ajout contributeurs aux docstrings : Pierre
     - Ajout diagramme du projet
-    - Ajout simulation (branche opt/simulation) : Arthur Co.
+    - Ajout simulation: Arthur Co.
     - Modification affichage cartes (valet, reine, roi, as) : Pierre
     - Finalisation documentation : Arthur Co.
 
 2. Prochaine séance
     - Interface graphique
 
-### 11/01/2024
+## 11/01/2024
 
 1. Ordre du jour
     - Avancement interface graphique : Arthur Co.
