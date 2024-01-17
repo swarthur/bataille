@@ -1,5 +1,5 @@
 from bataille.classes.carte import Carte
-from bataille.classes.erreur import NbCartesInsuffisantException
+from bataille.classes.erreur import NbCartesInsuffisantException, NbCartesInvalideException
 from random import randint
 from typing import Self
 
@@ -8,12 +8,20 @@ class Paquet():
     """Paquet de cartes
     Attributs:
         cartes(list): liste de cartes
+
+    Contributeurs:
+        Arthur.Ch 
+        Arthur.Co
+        Pierre
     """
     def __init__(self, cartes:list[Carte]) -> None:
         """Constructeur de Paquet
 
         Args:
             cartes (list[Carte]): Liste de cartes à ajouter
+
+        Contributeur:
+            Arthur Co.
         """
         if type(cartes) != list:
             raise TypeError
@@ -27,6 +35,9 @@ class Paquet():
 
         Returns:
             list: Cartes du paquet
+
+        Contributeur:
+            Arthur Co.
         """
         return self.cartes
 
@@ -36,6 +47,10 @@ class Paquet():
         Args:
             carte (Carte): Carte à ajouter au paquet
             en_haut (bool): Définit si la carte doit être ajoutée en tête du paquet ou à la queue
+
+        Contributeurs:
+            Pierre
+            Arthur Co.
         """
         if type(carte) != Carte:
             raise TypeError
@@ -45,6 +60,12 @@ class Paquet():
             self.cartes.insert(0, carte)
     
     def assembler(self, paquet: Self, en_haut: bool=False):
+        """Assemble (concatène) deux paquets
+
+        Args:
+            paquet (Self): paquet à recupérer
+            en_haut (bool, optional): définit si le paquet récupérer doit être placé en haut ou en bas du paquet récepteur. Defaults to False.
+        """
         nouv_cartes = paquet.retirer(0)
         if en_haut:
             self.cartes = self.cartes + nouv_cartes
@@ -63,6 +84,9 @@ class Paquet():
 
         Returns:
             list: Cartes retirées
+        Contributeur:
+            Pierre
+            Arthur. Co
         """
         if nb_cartes == 0:
             paquet = self.get_cartes()
@@ -76,8 +100,10 @@ class Paquet():
         return paquet       
             
     def melanger(self)-> None:
-        """
-        Mélange le paquet
+        """Mélange le paquet
+
+        Contributeur:
+            Pierre
         """
         paquet_melange = []
         for carte in range (0,len(self.cartes)):
@@ -95,6 +121,8 @@ class Paquet():
 
         Raises:
             NbCartesInsuffisantException: Si il n'y as pas assez de cartes
+        Conributeur:
+            Arthur. Co
         """
         cartes_recup = Paquet(paquet.retirer(nb_cartes))
         self.assembler(cartes_recup, en_haut)
@@ -104,6 +132,10 @@ class Paquet():
 
         Returns:
             bool: Paquet vide ou non
+        
+        Contributeurs:
+            Pierre
+            Arthur Co.
         """
         if len(self) == 0:
             return True
@@ -114,14 +146,17 @@ class Paquet():
         """Divise le paquet de X cartes en 2 paquets de X/2 cartes chacuns
 
         Raises:
-            RuntimeError: Erreur si le nombre de cartes est impair
+            NbCartesInvalideException: Erreur si le nombre de cartes est impair
             NbCartesInsuffisantException: Erreur si le paquet est vide
 
         Returns:
             tuple[Self, Self]: Renvoie un tuple contenant les 2 nouveaux paquets créés.
+
+        Contributeur:
+            Pierre
         """
         if len(self.cartes)%2 != 0:
-            raise RuntimeError("Nombre de cartes impair")
+            raise NbCartesInvalideException("Nombre de cartes impair")
         elif self.est_vide():
             raise NbCartesInsuffisantException("Paquet vide")
         paquet_1 = Paquet([])
@@ -138,6 +173,9 @@ class Paquet():
 
         Returns:
             str: Chaine de caractère des cartes du paquet
+        
+        Contributeur:
+            Arthur Co.
         """
         return_str = "(b\n"
         for carte in self.cartes:
@@ -149,5 +187,8 @@ class Paquet():
 
         Returns:
             int: Nombre de cartes du paquet
+
+        Contributeur:
+            Arthur. Co
         """
         return len(self.cartes)
