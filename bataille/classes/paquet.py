@@ -1,5 +1,5 @@
 from bataille.classes.carte import Carte
-from bataille.classes.erreur import NbCartesInsuffisantException, NbCartesInvalideException
+from bataille.classes.exceptions import NbCartesInsuffisantException, NbCartesInvalideException
 from random import randint
 from typing import Self
 

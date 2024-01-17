@@ -1,7 +1,7 @@
 import unittest
 from bataille.classes.carte import Carte
 from bataille.classes.paquet import Paquet
-from bataille.classes.erreur import NbCartesInsuffisantException
+from bataille.classes.exceptions import NbCartesInsuffisantException, NbCartesInvalideException
 from copy import deepcopy
 
 class TestCarte(unittest.TestCase):
@@ -98,7 +98,7 @@ class TestPaquet(unittest.TestCase):
         with self.assertRaises(NbCartesInsuffisantException):
             paquet_t4.split()
         paquet_t4.ajouter(Carte(1, "trèfle"))
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(NbCartesInvalideException):
             paquet_t4.split()
             
     def test_len(self):

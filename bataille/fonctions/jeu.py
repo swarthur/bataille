@@ -1,6 +1,6 @@
 from bataille.classes.carte import Carte, SYMBOLES
 from bataille.classes.paquet import Paquet
-from bataille.classes.erreur import NbCartesInvalideException
+from bataille.classes.exceptions import NbCartesInvalideException
 
 def creation_paquet_0(nb_cartes:int = 52)-> Paquet:
     """Crée un paquet de nb_cartes cartes
