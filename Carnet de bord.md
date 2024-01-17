@@ -86,3 +86,22 @@
 
 2. Prochaine séance:
     - Interface graphique
+    - Finalisation du jeu de base
+
+### 22/12/2023
+
+1. Ordre du jour
+    - Ajout contributeurs aux docstrings : Pierre
+    - Ajout diagramme du projet
+    - Ajout simulation (branche opt/simulation) : Arthur Co.
+    - Modification affichage cartes (valet, reine, roi, as) : Pierre
+    - Finalisation documentation : Arthur Co.
+
+2. Prochaine séance
+    - Interface graphique
+
+### 11/01/2024
+
+1. Ordre du jour
+    - Avancement interface graphique : Arthur Co.
+    - Avacement compte-rendu : Pierre, Arthur Ch.
