@@ -1,5 +1,5 @@
 from bataille.classes.carte import Carte
-from bataille.classes.erreur import NbCartesInsuffisantException
+from bataille.classes.exceptions import NbCartesInsuffisantException, NbCartesInvalideException
 from random import randint
 from typing import Self
 
@@ -146,7 +146,7 @@ class Paquet():
         """Divise le paquet de X cartes en 2 paquets de X/2 cartes chacuns
 
         Raises:
-            RuntimeError: Erreur si le nombre de cartes est impair
+            NbCartesInvalideException: Erreur si le nombre de cartes est impair
             NbCartesInsuffisantException: Erreur si le paquet est vide
 
         Returns:
@@ -156,7 +156,7 @@ class Paquet():
             Pierre
         """
         if len(self.cartes)%2 != 0:
-            raise RuntimeError("Nombre de cartes impair")
+            raise NbCartesInvalideException("Nombre de cartes impair")
         elif self.est_vide():
             raise NbCartesInsuffisantException("Paquet vide")
         paquet_1 = Paquet([])
