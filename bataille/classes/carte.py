@@ -32,7 +32,6 @@ class Carte():
             self.couleur = "noire"
         else:
             self.couleur = "rouge"
-        self.img = f"..\\images\\{self.symbole}_{self.valeur}.png"
 
     def __lt__(self, carte)-> bool:
         """Compare deux cartes
