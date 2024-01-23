@@ -1,4 +1,4 @@
-SYMBOLES = ["trèfle", "pique", "carreau", "coeur"]
+SYMBOLES = ["trefle", "pique", "carreau", "coeur"]
 class Carte():
     """Classe de cartes
 
@@ -28,7 +28,7 @@ class Carte():
             raise RuntimeError("Valeur invalide")
         self.valeur = valeur
         self.symbole = symbole
-        if symbole in ["trèfle", "pique"]:
+        if symbole in ["trefle", "pique"]:
             self.couleur = "noire"
         else:
             self.couleur = "rouge"
